@@ -7,6 +7,8 @@ use App\Models\Project;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -41,7 +43,22 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Project;
+
+        $data->title = $request->input('title');
+        $data->keywords = $request->input('keywords');
+        $data->description = $request->input('description');
+        $data->image = $request->input('image');
+        $data->category_id = $request->input('category_id');
+        $data->user_id = Auth::id();
+        $data->detail = $request->input('detail');
+        $data->videolink = $request->input('videolink');
+        $data->slug = $request->input('slug');
+        $data->status = $request->input('status');
+        $data->image = Storage::putFile('images', $request->file('image'));
+        $data->save();
+
+        return redirect()->route('user_project');
     }
 
     /**
@@ -61,9 +78,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project,$id)
     {
-        //
+        $data=Project::find($id);
+        $datalist = Category::with('children')->get();
+        return view('home.user_project_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
@@ -73,9 +92,26 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project,$id)
     {
-        //
+        $data=Project::find($id);
+        $data->title = $request->input('title');
+        $data->keywords = $request->input('keywords');
+        $data->description = $request->input('description');
+        $data->image = $request->input('image');
+        $data->category_id = $request->input('category_id');
+        $data->user_id = Auth::id();
+        $data->detail = $request->input('detail');
+        $data->videolink = $request->input('videolink');
+        $data->slug = $request->input('slug');
+        $data->status = $request->input('status');
+        if($request->file('image')!=null)
+        {
+            $data->image = Storage::putFile('images',$request->file('image'));
+        }
+
+        $data->save();
+        return redirect()->route('user_project');
     }
 
     /**
@@ -84,8 +120,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $projects,$id)
     {
-        //
+        DB::table('projects')->where('id','=',$id)->delete();
+        return redirect()->route('user_project');
     }
 }

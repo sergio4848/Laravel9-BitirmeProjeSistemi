@@ -14,6 +14,7 @@
                     <div class="title-wrap d-flex justify-content-between">
                         <div class="title-box">
                             <h2 class="title-a">Projelerim</h2> <a href="{{route('user_project_create')}}">PROJE EKLE</a>
+                            <p>@include('home.message')</p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +38,7 @@
                                         <h3>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</h3>
                                         <p class="testimonial-text">
                                             {{$rs->created_at}}
-                                            <a href="{{route('user_project_update',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/assets/images')}}/edit.png" style="width: 30px; height: 30px;"></a>
+                                            <a href="{{route('user_project_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/assets/images')}}/edit.png" style="width: 30px; height: 30px;"></a>
                                             <a href="{{route('user_project_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/assets/images')}}/delete.png" style="width: 30px; height: 30px;"></a>
 
                                         </p>

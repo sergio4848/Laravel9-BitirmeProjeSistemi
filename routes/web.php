@@ -138,6 +138,7 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('/', [\App\Http\Controllers\ProjectController::class, 'index'])->name('user_project');
         Route::get('create',[\App\Http\Controllers\ProjectController::class,'create'])->name('user_project_create');
         Route::post('store',[\App\Http\Controllers\ProjectController::class,'store'])->name('user_project_store');
+        Route::get('edit/{id}',[\App\Http\Controllers\ProjectController::class,'edit'])->name('user_project_edit');
         Route::post('update/{id}', [\App\Http\Controllers\ProjectController::class, 'update'])->name('user_project_update');
         Route::get('delete/{id}', [\App\Http\Controllers\ProjectController::class, 'destroy'])->name('user_project_delete');
         Route::get('show/{id}', [\App\Http\Controllers\ProjectController::class, 'show'])->name('user_project_show');
