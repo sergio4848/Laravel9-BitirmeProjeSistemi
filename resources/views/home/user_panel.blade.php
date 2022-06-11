@@ -7,7 +7,7 @@
             <a href="{{route('user_review')}}">Yorumlarım</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{route('user_reserve')}}">Rezervasyonlarım</a>
+            <a href="#">Rezervasyonlarım</a>
         </li>
         <li class="breadcrumb-item">
             <a href="{{route('logout')}}">Çıkış</a>

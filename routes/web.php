@@ -89,14 +89,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
           Route::get('show/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'show'])->name('admin_review_show');
 
       });
-      Route::prefix('reserve')->group(function () {
 
-          Route::get('/', [\App\Http\Controllers\Admin\ReserveController::class, 'index'])->name('admin_reserve');
-          Route::post('update/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'update'])->name('admin_reserve_update');
-          Route::get('delete/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'destroy'])->name('admin_reserve_delete');
-          Route::get('show/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'show'])->name('admin_reserve_show');
-
-      });
       Route::prefix('faq')->group(function () {
           Route::get('/', [FaqController::class, 'index'])->name('admin_faq');
           Route::get('create', [FaqController::class, 'create'])->name('admin_faq_add');
@@ -140,11 +133,7 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('show/{id}', [\App\Http\Controllers\ReviewController::class, 'show'])->name('user_review_show');
 
     });
-    Route::prefix('reserve')->group(function () {
-
-        Route::get('/', [\App\Http\Controllers\ReserveController::class, 'index'])->name('user_reserve');
-
-    });
+   
 
 });
 
