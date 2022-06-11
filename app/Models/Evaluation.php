@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluation extends Model
 {
     use HasFactory;
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
