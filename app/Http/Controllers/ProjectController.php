@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +28,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $setting = Setting::first();
+        $datalist = Category::with('children')->get();
+        return view('home.user_project_add', ['datalist' => $datalist,'setting'=>$setting]);
     }
 
     /**

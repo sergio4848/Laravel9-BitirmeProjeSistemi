@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="title-wrap d-flex justify-content-between">
                         <div class="title-box">
-                            <h2 class="title-a">Projelerim</h2>
+                            <h2 class="title-a">Projelerim</h2> <a href="{{route('user_project_create')}}">PROJE EKLE</a>
                         </div>
                     </div>
                 </div>
@@ -26,16 +26,19 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="testimonial-img">
-                                        <img src="{{ Storage::url($rs->project->image) }}" alt="" class="img-fluid">
+                                        <img src="{{ Storage::url($rs->image) }}" alt="" class="img-fluid">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <div class="testimonial-ico">
-                                        <span>{{$rs->created_at}}</span>
+                                        <span>{{$rs->title}}</span>
                                     </div>
-                                    <div class="testimonials-content">
+                                    <div class="testimonials-content"><br><br>
+                                        <h3>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</h3>
                                         <p class="testimonial-text">
-                                            {{$rs->review}}
+                                            {{$rs->created_at}}
+                                            <a href="{{route('user_project_update',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/assets/images')}}/edit.png" style="width: 30px; height: 30px;"></a>
+                                            <a href="{{route('user_project_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/assets/images')}}/delete.png" style="width: 30px; height: 30px;"></a>
 
                                         </p>
                                     </div>
