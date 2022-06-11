@@ -88,7 +88,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('user_image_delete',['id'=>$rs->id,'project_id'=>$data->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/images')}}/delete.png" height="30"></a>
+                                        <a href="{{route('user_image_delete',['id'=>$rs->id,'project_id'=>$data->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/assets/images')}}/delete.png" height="30"></a>
                                     </td>
                                 </tr>
                             @endforeach

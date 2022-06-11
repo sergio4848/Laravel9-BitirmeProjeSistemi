@@ -1,80 +1,4 @@
-<!--/ footer Star /-->
-<section class="section-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="widget-a">
-                    <div class="w-header-a">
-                        <h3 class="w-title-a text-brand">{{$setting->company}}</h3>
-                    </div>
-                    <div class="w-body-a">
-                        <p class="w-text-a color-text-a">
-                            {{$setting->title}}
-                        </p>
-                    </div>
-                    <div class="w-footer-a">
-                        <ul class="list-unstyled">
-                            <li class="color-a">
-                                <span class="color-text-a">Phone .</span> {{$setting->phone}}</li>
-                            <li class="color-a">
-                                <span class="color-text-a">Email .</span> {{$setting->email}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 section-md-t3">
-                <div class="widget-a">
-                    <div class="w-header-a">
-                        <h3 class="w-title-a text-brand">The Company</h3>
-                    </div>
-                    <div class="w-body-a">
-                        <div class="w-body-a">
-                            <ul class="list-unstyled">
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @php
-                $parentCategories=\App\Http\Controllers\HomeController::categoryList();
-            @endphp
-            <div class="col-sm-12 col-md-4 section-md-t3">
-                <div class="widget-a">
-                    <div class="w-header-a">
-                        <h3 class="w-title-a text-brand">Kategoriler</h3>
-                    </div>
-                    <div class="w-body-a">
-                        <ul class="list-unstyled">
-                            @foreach($parentCategories as $rs)
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="{{route('categoryprojects',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <footer>
     <div class="container">
         <div class="row">
@@ -121,7 +45,7 @@
                 <div class="copyright-footer">
                     <p class="copyright color-text-a">
                         &copy; Copyright
-                        <span class="color-a">Seyahat Acentesi</span> All Rights Reserved.
+                        <span class="color-a">Bitirme Projesi Sitesi</span> All Rights Reserved.
                     </p>
                 </div>
                 <div class="credits">

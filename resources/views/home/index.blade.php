@@ -113,9 +113,44 @@
         </div>
     </section>
     <!--/ News End /-->
+    <section class="section-testimonials section-t8 nav-arrow-a" style="padding-top: 200px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Farklı Projeler</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div id="testimonial-carousel" class="owl-carousel owl-arrow">
+        @foreach($daily as $rs)
+            <div class="carousel-item-a">
+                <div class="testimonials-box">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-img">
+                                <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{ Storage::url($rs->image) }}" style="height: 300px;" alt="" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-ico">
+                                <span><a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a></span>
+                            </div>
+                            <div class="testimonials-content"><br><br>
+                                <h3>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</h3>
 
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        </div>
 
-
+        </div>
+    </section>
 @endsection
 

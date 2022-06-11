@@ -16,9 +16,6 @@
 
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-4">
-@include('home.user_panel')
-                </div>
             </div>
         </div>
     </section>

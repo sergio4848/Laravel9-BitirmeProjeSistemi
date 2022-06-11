@@ -38,7 +38,7 @@
                                         <h3>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</h3>
                                         <p class="testimonial-text">
                                             {{$rs->created_at}}
-                                            <a href="{{route('user_image_add',['place_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"><img src="{{asset('assets/admin/images')}}/gallery.png" style="height: 30px;width: 30px;"></a>
+                                            <a href="{{route('user_image_add',['project_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"><img src="{{asset('assets/admin/assets/images')}}/gallery.png" style="height: 30px;width: 30px;"></a>
                                             <a href="{{route('user_project_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/assets/images')}}/edit.png" style="width: 30px; height: 30px;"></a>
                                             <a href="{{route('user_project_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/assets/images')}}/delete.png" style="width: 30px; height: 30px;"></a>
 
