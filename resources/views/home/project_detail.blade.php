@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Paket Detayları '.$data->title)
+@section('title', 'Proje Detayları '.$data->title)
 
 @section('description'){{$data->description}}@endsection
 
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="property-summary">
                                 <div class="row">

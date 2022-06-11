@@ -6,8 +6,8 @@
 @section('title', 'Yorumlarım | '.$setting->title)
 @include('home._header')
 @section ('content')
-    <!--/ Testimonials Star /-->
-    <section class="section-testimonials section-t8 nav-arrow-a">
+
+    <section class="section-testimonials section-t8 nav-arrow-a" style="padding-top: 200px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -18,42 +18,38 @@
                     </div>
                 </div>
             </div>
+
             <div id="testimonial-carousel" class="owl-carousel owl-arrow">
+                @foreach($datalist as $rs)
                 <div class="carousel-item-a">
                     <div class="testimonials-box">
-
                         <div class="row">
-                            @foreach($datalist as $rs)
                             <div class="col-sm-12 col-md-6">
-                                {{$rs->package->title}}
                                 <div class="testimonial-img">
-                                    <img src="{{ Storage::url($rs->package->image) }}" alt="" class="img-fluid">
+                                    <img src="{{ Storage::url($rs->project->image) }}" alt="" class="img-fluid">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div class="testimonial-ico">
-                                    <span class="ion-ios-quote"></span>
+                                    <span>{{$rs->created_at}}</span>
                                 </div>
                                 <div class="testimonials-content">
                                     <p class="testimonial-text">
                                         {{$rs->review}}
-                                        {{$rs->created_at}}
+
                                     </p>
                                 </div>
-                                <div class="testimonial-author-box">
-                                    <h5 class="testimonial-author">{{$rs->subject}}</h5>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                @endforeach
             </div>
+
         </div>
     </section>
-    <!--/ Testimonials End /-->
+
 
 @endsection
 

@@ -133,6 +133,14 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('show/{id}', [\App\Http\Controllers\ReviewController::class, 'show'])->name('user_review_show');
 
     });
+    Route::prefix('project')->group(function () {
+
+        Route::get('/', [\App\Http\Controllers\ProjectController::class, 'index'])->name('user_project');
+        Route::post('update/{id}', [\App\Http\Controllers\ProjectController::class, 'update'])->name('user_project_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\ProjectController::class, 'destroy'])->name('user_project_delete');
+        Route::get('show/{id}', [\App\Http\Controllers\ProjectController::class, 'show'])->name('user_project_show');
+
+    });
 
 
 });

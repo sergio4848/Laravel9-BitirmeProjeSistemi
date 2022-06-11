@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -13,7 +15,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $datalist=Project::where('user_id',Auth::id())->get();
+        return view('home.user_projects',['datalist'=>$datalist]);
     }
 
     /**

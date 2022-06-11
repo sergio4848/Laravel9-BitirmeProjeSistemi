@@ -45,9 +45,7 @@
                                     </h2>
                                 </div>
                                 <div class="card-body-a">
-                                    <div class="price-box d-flex">
-                                        <span class="price-a">₺ {{$rs->price}}</span>
-                                    </div>
+
                                     <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}" class="link-a">İncele
                                         <span class="ion-ios-arrow-forward"></span>
                                     </a>
@@ -58,10 +56,7 @@
                                             <h4 class="card-info-title">Kategori</h4>
                                             <span>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</span>
                                         </li>
-                                        <li>
-                                            <h4 class="card-info-title">Fiyat</h4>
-                                            <span>₺ {{$rs->price}}</span>
-                                        </li>
+
 
                                     </ul>
                                 </div>
@@ -106,9 +101,7 @@
                                         <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
                                     </h2>
                                 </div>
-                                <div class="card-date">
-                                    <span class="date-b">₺ {{$rs->price}}</span>
-                                </div>
+
                             </div>
                         </div>
                     </div>

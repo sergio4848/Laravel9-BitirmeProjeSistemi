@@ -147,6 +147,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('userprofile')}}">Profilim</a>
                         <a class="dropdown-item" href="{{route('user_review')}}">Yorumlarım</a>
+                        <a class="dropdown-item" href="{{route('user_project')}}">Projelerim</a>
                         <a class="dropdown-item" href="{{route('logout')}}">Çıkış</a>
                     </div>
                 </li>
