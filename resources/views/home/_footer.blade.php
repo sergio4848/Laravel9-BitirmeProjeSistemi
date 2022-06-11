@@ -131,7 +131,7 @@
                       Licensing information: https://bootstrapmade.com/license/
                       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
                     -->
-                    Designed by Bilge Ecem KARATOKUŞ
+                    Designed by 
                 </div>
             </div>
         </div>

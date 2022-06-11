@@ -101,7 +101,7 @@
             <span></span>
             <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="/">Seyahat<span class="color-b">Acentesi</span></a>
+        <a class="navbar-brand text-brand" href="/"><img src="{{asset('assets/img/logo.png')}}" style="height: 100px;"/></a>
         <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
                 data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
@@ -147,7 +147,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('userprofile')}}">Profilim</a>
                         <a class="dropdown-item" href="{{route('user_review')}}">Yorumlarım</a>
-                        <a class="dropdown-item" href="{{route('user_reserve')}}">Rezervasyonlarım</a>
                         <a class="dropdown-item" href="{{route('logout')}}">Çıkış</a>
                     </div>
                 </li>
@@ -165,7 +164,7 @@
             @endauth
             </ul>
         </div>
-        
+
     </div>
 </nav>
 <!--/ Nav End /-->

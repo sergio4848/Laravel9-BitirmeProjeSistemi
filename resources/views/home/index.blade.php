@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="title-wrap d-flex justify-content-between">
                         <div class="title-box">
-                            <h2 class="title-a">En Son Eklenen Turlar</h2>
+                            <h2 class="title-a">En Son Eklenen Projeler</h2>
                         </div>
                         <div class="title-link">
 
@@ -41,14 +41,14 @@
                             <div class="card-overlay-a-content">
                                 <div class="card-header-a">
                                     <h2 class="card-title-a">
-                                        <a href="{{route('package',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
+                                        <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
                                     </h2>
                                 </div>
                                 <div class="card-body-a">
                                     <div class="price-box d-flex">
                                         <span class="price-a">₺ {{$rs->price}}</span>
                                     </div>
-                                    <a href="{{route('package',['id' => $rs->id,'slug' => $rs->slug])}}" class="link-a">İncele
+                                    <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}" class="link-a">İncele
                                         <span class="ion-ios-arrow-forward"></span>
                                     </a>
                                 </div>
@@ -83,7 +83,7 @@
                 <div class="col-md-12">
                     <div class="title-wrap d-flex justify-content-between">
                         <div class="title-box">
-                            <h2 class="title-a">Rastgele Turlar</h2>
+                            <h2 class="title-a">Rastgele Projeler</h2>
                         </div>
 
                     </div>
@@ -99,11 +99,11 @@
                         <div class="card-overlay">
                             <div class="card-header-b">
                                 <div class="card-category-b">
-                                    <a href="{{route('package',['id' => $rs->id,'slug' => $rs->slug])}}" class="category-b">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</a>
+                                    <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}" class="category-b">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</a>
                                 </div>
                                 <div class="card-title-b">
                                     <h2 class="title-2">
-                                        <a href="{{route('package',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
+                                        <a href="{{route('project',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
                                     </h2>
                                 </div>
                                 <div class="card-date">

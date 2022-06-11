@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Paket Düzenle')
+@section('title','Proje Düzenle')
 @section('javascript')
     <head>
         @FilemanagerScript
@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <form action="{{route('admin_package_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('admin_project_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <table>
 
@@ -47,7 +47,7 @@
                                                 });
                                             }
                                         </script>
-                                        <tr><h4>Price: </h4><input style="width: 1000px" id="price" value="{{$data->price}}" type="number" name="price" placeholder="Price"/></tr><br>
+                                        <tr><h4>Video Link: </h4><input style="width: 1000px" id="videolink" value="{{$data->videolink}}" type="text" name="videolink" placeholder="videolink"/></tr><br>
                                         <tr><h4>Slug: </h4><input style="width: 1000px" id="slug" value="{{$data->slug}}" type="text" name="slug" placeholder="Slug"/></tr><br>
                                         <tr><label for="image"><h4>Image:</h4></label><input type="file" name="image" id="image" value="{{$data->image}}" class="form-control">
                                             <br>

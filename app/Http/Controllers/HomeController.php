@@ -25,10 +25,10 @@ class HomeController extends Controller
     }
     public function index(){
         $setting=Setting::first();
-        $slider=Project::select('id','title','image','slug','price','category_id')->limit(4)->get();
-        $daily=Project::select('id','title','image','slug','price','category_id')->limit(4)->inRandomOrder()->get();
-        $last=Project::select('id','title','image','slug','price','category_id')->orderByDesc('id')->get();
-        $picked=Project::select('id','title','image','slug','price','category_id')->inRandomOrder()->get();
+        $slider=Project::select('id','title','image','slug','category_id')->limit(4)->get();
+        $daily=Project::select('id','title','image','slug','category_id')->limit(4)->inRandomOrder()->get();
+        $last=Project::select('id','title','image','slug','category_id')->orderByDesc('id')->get();
+        $picked=Project::select('id','title','image','slug','category_id')->inRandomOrder()->get();
         $data=[
             'setting'=>$setting,
             'daily'=>$daily,

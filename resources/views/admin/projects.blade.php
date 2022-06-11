@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Paketler')
+@section('title','Projeler')
 
 @section('content')
     <div class="content">
@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <a href="{{route('admin_package_create')}}" style="position: absolute; right: 25px;" class="btn btn-primary">Paket Ekle</a>
+                            <a href="{{route('admin_project_create')}}" style="position: absolute; right: 25px;" class="btn btn-primary">Paket Ekle</a>
                             <h4 class="card-title ">Paketler</h4>
 
                         </div>
@@ -22,7 +22,7 @@
                                     <th>Category</th>
                                     <th>Title</th>
                                     <th>Image</th>
-                                    <th>Price</th>
+
                                     <th>Image Gallery</th>
                                     <th>Status</th>
                                     <th>Edit</th>
@@ -46,19 +46,17 @@
                                                 @endif
 
                                             </td>
-                                            <td>
-                                                <b>{{$rs->price}} ₺</b>
-                                            </td>
-                                            <td><a href="{{route('admin_image_add',['package_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"><img src="{{asset('assets/admin/assets/images')}}/gallery.png" height="30"></a></td>
+
+                                            <td><a href="{{route('admin_image_add',['project_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"><img src="{{asset('assets/admin/assets/images')}}/gallery.png" height="30"></a></td>
 
                                             <td>
                                                 {{$rs->status}}
                                             </td>
                                             <td>
-                                                <a href="{{route('admin_package_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/assets/images')}}/edit.png" height="30"></a>
+                                                <a href="{{route('admin_project_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/assets/images')}}/edit.png" height="30"></a>
                                             </td>
                                             <td>
-                                                <a href="{{route('admin_package_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/assets/images')}}/delete.png" height="30"></a>
+                                                <a href="{{route('admin_project_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/assets/images')}}/delete.png" height="30"></a>
                                             </td>
                                         </tr>
                                     @endforeach

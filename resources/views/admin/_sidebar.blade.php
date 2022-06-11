@@ -27,9 +27,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('admin_packages')}}">
+                <a href="{{route('admin_projects')}}">
                     <i class="tim-icons icon-pin"></i>
-                    <p>PAKETLER</p>
+                    <p>PROJELER</p>
                 </a>
             </li>
             <li>
@@ -62,12 +62,7 @@
                     <p>SSS</p>
                 </a>
             </li>
-            <li>
-                <a href="{{route('admin_reserve')}}">
-                    <i class="tim-icons icon-spaceship"></i>
-                    <p>REZERVASYONLAR</p>
-                </a>
-            </li>
+
         </ul>
     </div>
 </div>

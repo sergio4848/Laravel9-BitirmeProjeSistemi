@@ -22,7 +22,7 @@
             <script>
                 document.write(new Date().getFullYear())
             </script> made with <i class="tim-icons icon-heart-2"></i> by
-            Bilge Ecem KARATOKUŞ.
+
         </div>
     </div>
 </footer>
