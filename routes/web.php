@@ -133,7 +133,7 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('show/{id}', [\App\Http\Controllers\ReviewController::class, 'show'])->name('user_review_show');
 
     });
-   
+
 
 });
 

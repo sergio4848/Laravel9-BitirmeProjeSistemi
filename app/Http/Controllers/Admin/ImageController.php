@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
-use App\Models\Package;
+use App\Models\project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,11 +27,11 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($package_id)
+    public function create($project_id)
     {
-        $data=Package::find($package_id);
+        $data=Project::find($project_id);
 
-        $images=DB::table('images')->where('package_id','=',$package_id)->get();
+        $images=DB::table('images')->where('project_id','=',$project_id)->get();
         return view('admin.image_add',['data'=>$data,'images'=>$images]);
 
     }
@@ -42,18 +42,18 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$package_id)
+    public function store(Request $request,$project_id)
     {
         $data = new Image;
 
         $data->title = $request->input('title');
         $data->image = $request->input('image');
-        $data->package_id = $package_id;
+        $data->project_id = $project_id;
 
         $data->image = Storage::putFile('images', $request->file('image'));
         $data->save();
 
-        return redirect()->route('admin_image_add',['package_id' =>$package_id]);
+        return redirect()->route('admin_image_add',['project_id' =>$project_id]);
     }
 
     /**
@@ -96,11 +96,11 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image,$id,$package_id)
+    public function destroy(Image $image,$id,$project_id)
     {
         $data=Image::find($id);
         $data->delete();
 
-        return redirect()->route('admin_image_add',['package_id' =>$package_id]);
+        return redirect()->route('admin_image_add',['project_id' =>$project_id]);
     }
 }

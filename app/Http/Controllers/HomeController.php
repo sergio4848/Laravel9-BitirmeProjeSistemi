@@ -6,8 +6,7 @@ use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
-use App\Models\Package;
-use App\Models\Reserve;
+use App\Models\Project;
 use App\Models\Review;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -26,10 +25,10 @@ class HomeController extends Controller
     }
     public function index(){
         $setting=Setting::first();
-        $slider=Package::select('id','title','image','slug','price','category_id')->limit(4)->get();
-        $daily=Package::select('id','title','image','slug','price','category_id')->limit(4)->inRandomOrder()->get();
-        $last=Package::select('id','title','image','slug','price','category_id')->orderByDesc('id')->get();
-        $picked=Package::select('id','title','image','slug','price','category_id')->inRandomOrder()->get();
+        $slider=Project::select('id','title','image','slug','price','category_id')->limit(4)->get();
+        $daily=Project::select('id','title','image','slug','price','category_id')->limit(4)->inRandomOrder()->get();
+        $last=Project::select('id','title','image','slug','price','category_id')->orderByDesc('id')->get();
+        $picked=Project::select('id','title','image','slug','price','category_id')->inRandomOrder()->get();
         $data=[
             'setting'=>$setting,
             'daily'=>$daily,
@@ -47,21 +46,21 @@ class HomeController extends Controller
     }
 
 
-    public function package($id,$slug){
+    public function project($id,$slug){
         $setting=Setting::first();
-        $data=Package::find($id);
-        $images=Image::where('package_id',$id)->get();
-        $reviews=Review::where('package_id',$id)->get();
+        $data=Project::find($id);
+        $images=Image::where('project_id',$id)->get();
+        $reviews=Review::where('project_id',$id)->get();
 
-        return view('home.package_detail',['setting'=>$setting,'data'=>$data,'images'=>$images,'reviews'=>$reviews]);
+        return view('home.project_detail',['setting'=>$setting,'data'=>$data,'images'=>$images,'reviews'=>$reviews]);
 
     }
-    public function categorypackages($id,$slug){
+    public function categoryprojects($id,$slug){
         $setting=Setting::first();
-        $datalist=Package::where('category_id',$id)->get();
+        $datalist=Project::where('category_id',$id)->get();
         $data=Category::find($id);
 
-        return view('home.category_packages',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
+        return view('home.category_projects',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
 
     }
 
@@ -73,26 +72,26 @@ class HomeController extends Controller
         return view('home.contact',['setting'=>$setting,'page'=>'home']);
     }
 
-    public function getpackage(Request $request)
+    public function getproject(Request $request)
     {
         $search=$request->input('search');
-        $count=Package::where('title','like','%'.$search.'%')->get()->count();
+        $count=Project::where('title','like','%'.$search.'%')->get()->count();
         if($count==1)
         {
-            $data=Package::where('title','like','%'.$search.'%')->first();
-            return redirect()->route('package',['id'=>$data->id,'slug'=>$data->slug]);
+            $data=Project::where('title','like','%'.$search.'%')->first();
+            return redirect()->route('project',['id'=>$data->id,'slug'=>$data->slug]);
         }
         else
         {
-            return redirect()->route('packagelist',['search'=>$search]);
+            return redirect()->route('projectlist',['search'=>$search]);
         }
 
 
     }
-    public function packagelist($search){
-        $datalist=Package::where('title','like','%'.$search.'%')->get();
+    public function projectlist($search){
+        $datalist=Project::where('title','like','%'.$search.'%')->get();
 
-        return view('home.search_packages',['search'=>$search,'datalist'=>$datalist]);
+        return view('home.search_projects',['search'=>$search,'datalist'=>$datalist]);
 
     }
     public function references(){
@@ -123,30 +122,30 @@ class HomeController extends Controller
         $data = new Review;
 
         $data->user_id = Auth::id();
-        $package = Package::find($id);
-        $data->package_id=$id;
+        $project = Project::find($id);
+        $data->project_id=$id;
         $data->subject = $request->input('subject');
         $data->review = $request->input('review');
         $data->IP = $_SERVER['REMOTE_ADDR'];
 
         $data->save();
 
-        return redirect()->route('package',['id'=>$package->id,'slug'=>$package->slug])->with('success','Mesajınız kaydedilmiştir');
+        return redirect()->route('project',['id'=>$project->id,'slug'=>$project->slug])->with('success','Mesajınız kaydedilmiştir');
     }
     public function sendreserve(Request $request,$id)
     {
         $data = new Reserve;
 
         $data->user_id = Auth::id();
-        $package = Package::find($id);
-        $data->package_id=$id;
+        $project = Project::find($id);
+        $data->project_id=$id;
         $data->people = $request->input('people');
         $data->startDate = $request->input('startDate');
         $data->IP = $_SERVER['REMOTE_ADDR'];
-        $data->amount=$data->people*$package->price;
+        $data->amount=$data->people*$project->price;
         $data->save();
 
-        return redirect()->route('package',['id'=>$package->id,'slug'=>$package->slug])->with('success','Rezervasyonunuz kaydedilmiştir');
+        return redirect()->route('project',['id'=>$project->id,'slug'=>$project->slug])->with('success','Rezervasyonunuz kaydedilmiştir');
     }
     public function faq(){
         $setting=Setting::first();
