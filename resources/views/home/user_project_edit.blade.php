@@ -1,18 +1,18 @@
 @extends('layouts.home')
 
 @section('title','Proje Düzenle')
-@section('javascript')
-    <head>
-        @FilemanagerScript
-    </head>
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+@include('home._header')
 
-@endsection
+<head>
+    @FilemanagerScript
+</head>
+
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
 
 
 @section('content')
-    <div class="content">
+    <div class="content" style="padding-top: 200px;">
         <div class="container-fluid">
             <div class="row">
 

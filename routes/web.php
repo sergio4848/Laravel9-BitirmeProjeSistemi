@@ -133,15 +133,22 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('show/{id}', [\App\Http\Controllers\ReviewController::class, 'show'])->name('user_review_show');
 
     });
-    Route::prefix('project')->group(function () {
-
-        Route::get('/', [\App\Http\Controllers\ProjectController::class, 'index'])->name('user_project');
+    Route::prefix('project')->group(function (){
+        Route::get('/',[\App\Http\Controllers\ProjectController::class,'index'])->name('user_project');
         Route::get('create',[\App\Http\Controllers\ProjectController::class,'create'])->name('user_project_create');
         Route::post('store',[\App\Http\Controllers\ProjectController::class,'store'])->name('user_project_store');
         Route::get('edit/{id}',[\App\Http\Controllers\ProjectController::class,'edit'])->name('user_project_edit');
-        Route::post('update/{id}', [\App\Http\Controllers\ProjectController::class, 'update'])->name('user_project_update');
-        Route::get('delete/{id}', [\App\Http\Controllers\ProjectController::class, 'destroy'])->name('user_project_delete');
-        Route::get('show/{id}', [\App\Http\Controllers\ProjectController::class, 'show'])->name('user_project_show');
+        Route::post('update/{id}',[\App\Http\Controllers\ProjectController::class,'update'])->name('user_project_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\ProjectController::class,'destroy'])->name('user_project_delete');
+        Route::get('show',[\App\Http\Controllers\ProjectController::class,'show'])->name('user_project_show');
+
+    });
+    Route::prefix('image')->group(function (){
+
+        Route::get('create/{project_id}',[\App\Http\Controllers\ImageController::class,'create'])->name('user_image_add');
+        Route::post('store/{project_id}',[\App\Http\Controllers\ImageController::class,'store'])->name('user_image_store');
+        Route::get('delete/{id}/{project_id}',[\App\Http\Controllers\ImageController::class,'destroy'])->name('user_image_delete');
+        Route::get('show',[\App\Http\Controllers\ImageController::class,'show'])->name('user_image_show');
 
     });
 

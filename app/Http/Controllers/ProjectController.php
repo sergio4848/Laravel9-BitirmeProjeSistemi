@@ -80,9 +80,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project,$id)
     {
+        $setting=Setting::first();
         $data=Project::find($id);
         $datalist = Category::with('children')->get();
-        return view('home.user_project_edit',['data'=>$data,'datalist'=>$datalist]);
+        return view('home.user_project_edit',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
     }
 
     /**
