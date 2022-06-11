@@ -51,7 +51,7 @@ class ProjectController extends Controller
         $data->category_id = $request->input('category_id');
         $data->user_id = Auth::id();
         $data->detail = $request->input('detail');
-        $data->price = $request->input('price');
+        $data->videolink = $request->input('videolink');
         $data->slug = $request->input('slug');
         $data->status = $request->input('status');
         $data->image = Storage::putFile('images', $request->file('image'));
@@ -102,7 +102,7 @@ class ProjectController extends Controller
         $data->category_id = $request->input('category_id');
         $data->user_id = Auth::id();
         $data->detail = $request->input('detail');
-        $data->price = $request->input('price');
+        $data->videolink = $request->input('videolink');
         $data->slug = $request->input('slug');
         $data->status = $request->input('status');
         if($request->file('image')!=null)

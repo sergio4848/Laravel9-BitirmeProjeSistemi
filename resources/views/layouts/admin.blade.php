@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets')}}/admin/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{asset('assets')}}/admin/assets/img/favicon.png">
     <title>
-        Seyahat Acentesi - ADMIN PANEL
+        Bitirme Projesi - ADMIN
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />

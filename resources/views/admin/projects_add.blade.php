@@ -2,9 +2,9 @@
 
 @section('title','Proje Ekle')
 @section('javascript')
-    <head>
+
         @FilemanagerScript
-    </head>
+
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
 @endsection
@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">Paket Ekle</h4>
+                            <h4 class="card-title ">Proje Ekle</h4>
 
                         </div>
                         <div class="card-body">

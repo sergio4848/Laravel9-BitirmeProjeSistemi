@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Tur Detayları '.$data->title)
+@section('title', 'Paket Detayları '.$data->title)
 
 @section('description'){{$data->description}}@endsection
 
@@ -42,50 +42,13 @@
                             <div class="property-price d-flex justify-content-center foo">
                                 <div class="card-header-c d-flex">
                                     <div class="card-box-ico">
-                                        <span class="ion-money">₺</span>
+                                        <span class="ion-money"><a href="{{$data->videolink}}">VIDEO LINK</a></span>
                                     </div>
-                                    <div class="card-title-c align-self-center">
-                                        <h5 class="title-c">{{$data->price}}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row section-t3">
-                                <div class="col-sm-12">
-                                    <div class="title-box-d">
-                                        <h3 class="title-d">Rezervasyon Yap</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            @php
-                                $amount=0;
-                            @endphp
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="property-contact">
-                                        <form class="form-a" action="{{route('sendreserve',['id'=>$data->id,'slug'=>$data->slug])}}" method="post">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="col-md-12 mb-1">
-                                                    <div class="form-group">
-                                                        <input type="date" class="form-control form-control-lg form-control-a" id="startDate" name="startDate"
-                                                               required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 mb-1">
-                                                    <div class="form-group">
-                                                        <input type="number" class="form-control form-control-lg form-control-a" id="people" name="people"
-                                                               placeholder="People" required>
-                                                    </div>
-                                                </div>
 
-                                                <div class="col-md-12">
-                                                    <button type="submit" class="btn btn-a">Rezervasyon Yap</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
+
+                            
 
                             <div class="property-summary">
                                 <div class="row">

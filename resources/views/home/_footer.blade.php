@@ -65,7 +65,7 @@
                         <ul class="list-unstyled">
                             @foreach($parentCategories as $rs)
                             <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="{{route('categorypackages',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a>
+                                <i class="fa fa-angle-right"></i> <a href="{{route('categoryprojects',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a>
                             </li>
                             @endforeach
                         </ul>
@@ -131,7 +131,7 @@
                       Licensing information: https://bootstrapmade.com/license/
                       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
                     -->
-                    Designed by 
+                    Designed by
                 </div>
             </div>
         </div>

@@ -134,7 +134,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($parentCategories as $rs)
-                        <a class="dropdown-item" href="{{route('categorypackages',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a>
+                        <a class="dropdown-item" href="{{route('categoryprojects',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a>
                         @endforeach
                     </div>
                 </li>

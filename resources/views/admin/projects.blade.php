@@ -10,8 +10,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <a href="{{route('admin_project_create')}}" style="position: absolute; right: 25px;" class="btn btn-primary">Paket Ekle</a>
-                            <h4 class="card-title ">Paketler</h4>
+                            <a href="{{route('admin_project_create')}}" style="position: absolute; right: 25px;" class="btn btn-primary">Proje Ekle</a>
+                            <h4 class="card-title ">Projeler</h4>
 
                         </div>
                         <div class="card-body">
