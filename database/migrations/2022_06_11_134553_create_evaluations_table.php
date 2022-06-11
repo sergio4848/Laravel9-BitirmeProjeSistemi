@@ -14,7 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('evaluations', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
+            $table->integer('project_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->integer('faculty_id')->nullable();
+            $table->float('grade')->nullable();
+            $table->string('note',100)->nullable();
+            $table->string('IP',20);
+            $table->string('status',30)->default('New');
             $table->timestamps();
         });
     }
